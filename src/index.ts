@@ -4,6 +4,8 @@ import * as fileUpload from "express-fileupload";
 import * as asyncHandler from "express-async-handler";
 import * as convert from "./convert";
 
+// change slides every SLIDE_INTERVAL seconds
+const SLIDE_INTERVAL = 30
 const SLIDES_DIR = __dirname + "/../data/slides";
 
 const app = express();
@@ -56,7 +58,7 @@ app.get(
 
         res.render("presentation.html", {
             images: presentationImages,
-            slideInterval: 1000 * 1 * 1
+            slideInterval: SLIDE_INTERVAL * 1000
         });
     })
 );
