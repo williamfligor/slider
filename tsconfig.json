@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "strict": true,
+        "sourceMap": true
+    },
+    "include": [
+        "src/*.ts"
+    ]
+}
+

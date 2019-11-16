@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>View Presentation</title>
+</head>
+<body>
+    <div id="slideshow" style="width: 100%;"></div>
+
+    <script>
+        var images = [];
+        var currentIndex = 0;
+
+        {{#images}}
+        images.push("{{.}}")
+        {{/images}}
+
+        console.log(images)
+
+        function setSlide() {
+            let content ="<img src=\"" + images[currentIndex] + "\" style=\"width: 100%;\">"; 
+            document.getElementById("slideshow").innerHTML = content;
+
+            currentIndex++;
+            if (currentIndex > images.length) {
+                // refresh at the end of every presentation
+                location.reload(true); 
+            }
+        }
+
+        setSlide();
+        setInterval(function() {
+            setSlide();
+        }, {{slideInterval}});
+    </script>
+</body>
+
